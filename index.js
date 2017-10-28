@@ -7,18 +7,18 @@ module.exports = function DamageSpy(dispatch) {
         me: false
     };
     let pcid,
-        players = {};
+            players = {};
     const command = Command(dispatch);
 
     dispatch.hook('S_LOGIN', 4, (event) => {
         pcid = event.cid;
     });
-    dispatch.hook('S_SPAWN_USER', 3, (event) => {
+dispatch.hook('S_SPAWN_USER', 3, (event) => {
         players[event.cid] = event;
-    });
-
+        });
+        
     dispatch.hook('S_DESPAWN_USER', 2, (event) => {
-        delete players[event.target];
+delete players[event.target];
     });
     //Commands
     command.add('spy', (cmd, t1, t2) => {
@@ -63,22 +63,8 @@ module.exports = function DamageSpy(dispatch) {
         }
         if (flags.me) {
             if (event.source.equals(pcid) || event.owner.equals(pcid)) {
-                dispatch.toClient('S_EACH_SKILL_RESULT', 3, {
-                    source: pcid,
-                    owner: pcid,
-                    target: event.target,
-                    model: event.model,
-                    skill: event.damage,
-                    stage: event.stage,
-                    unk1: event.unk1,
-                    id: event.id,
-                    time: event.time,
-                    damage: event.damage,
-                    type: event.type,
-                    type2: event.type,
-                    crit: event.crit,
-                    blocked: 0,
-                    setTargetAction: event.setTargetAction
+                blocked: 0;
+                return true
                 });
             }
         }
