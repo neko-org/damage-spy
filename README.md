@@ -2,7 +2,6 @@
 See what that dirty valkyrie is up to
 
 ## Commands:
-Settings can be found in index.js, setting any value to true will make it automatically active
 Command | Argument(s) | Usage | Description
 ---|---|---|---
 **!spy** | dps, heal, me | !fps dps | Activates the module, heal shows other players healing, dps shows other players damage, me shows damage during shields
