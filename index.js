@@ -64,8 +64,7 @@ delete players[event.target];
         if (flags.me) {
             if (event.source.equals(pcid) || event.owner.equals(pcid)) {
                 blocked: 0;
-                return true
-                });
+                return true;
             }
         }
         if (flags.heal) {
